@@ -1,0 +1,48 @@
+﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace OnlinePortal.Api.Models.Product
+{
+ 
+    /// <summary>
+    /// Create Product Data transfer object
+    /// </summary>
+    public class CreateProductDto
+    {
+        /// <summary>
+        /// Product Name
+        /// </summary>
+        [Required]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Category 
+        /// </summary>
+        [Required]
+        public int CategoryId { get; set; }
+
+        /// <summary>
+        /// Price 
+        /// </summary>
+        [Required]
+        public int Price { get; set; }
+
+        /// <summary>
+        /// Model 
+        /// </summary>
+        [Required]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Product Image
+        /// </summary>
+        public string Image { get; set; }
+
+        public bool IsOutOfStock { get; set; }
+
+    }
+}
