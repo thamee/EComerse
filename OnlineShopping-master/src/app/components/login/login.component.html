@@ -1,0 +1,56 @@
+
+<div class="header">
+  <div class="logo">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYq-52nkkWI3GRfj3LWPNNut44b-ZndZMEdn-Brl8Lig&s" alt="Spa Ceylon Logo" />
+  </div>
+  </div>
+<div class="login-container">
+  <div class="login-form">
+    <div  class="heading-3 text-center">
+      <i class="pi pi-video"  class="text-center"></i>Login
+    </div>
+    <div class="error-messages">
+      <div class="col-sm-12" *ngFor="let responseError of errors">
+        <small class="text-danger">
+          {{ responseError }}
+        </small>
+      </div>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">User Name</label>
+        <input [(ngModel)]="form.email" type="text" class="form-control" required aria-describedby="emailHelp" name="first">
+        <div class="col-sm-12" *ngIf="error.name.length > 0">
+          <small class="text-danger">
+            Username is required
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Password</label>
+        <input [(ngModel)]="form.password" type="password" class="form-control" required aria-describedby="emailHelp" name="first">
+        <div class="col-sm-12" *ngIf="error.password.length > 0">
+          <small class="text-danger">
+            Password is required
+          </small>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+        <div class="col-3"></div>
+          <button (click)="Login()" type="submit" class="btn btn-primary">Sign In </button>
+        </div>
+        </div>
+        <div class="row">
+        
+        <div class="col-12">
+
+          <h5  class="text-center" id="product-caption">
+            <a [href]="'/register'">Create an Account</a>
+          </h5>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

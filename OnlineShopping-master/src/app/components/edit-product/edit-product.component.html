@@ -1,0 +1,50 @@
+<div class="header">
+  <div class="logo">
+    <a routerLink="/" class="logo-link">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYq-52nkkWI3GRfj3LWPNNut44b-ZndZMEdn-Brl8Lig&s" alt="Spa Ceylon Logo" />
+
+    </a>
+  </div>
+  </div>
+<div class="page-padding">
+    <div class="page-content">
+      <div class="content-body">
+        <div class="heading-4">
+          <i class="pi pi-video" style="font-size: 2rem"></i> Edit Product
+        </div>
+        <form *ngIf="product">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Name</label>
+              <input  [(ngModel)]="product.name" type="text" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="first">
+              <span *ngIf="error.name.length>0">{{error.name}}</span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Model</label>
+                <input  [(ngModel)]="product.model" type="text" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="model">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Category</label>{{product.category.id}}
+                <select  class="form-control" id="exampleFormControlSelect1" [(ngModel)]="product.category.id" name="category">
+                    <option *ngFor="let c of categories" [ngValue]="c.id">{{c.name}}</option>
+                  </select>
+               
+              </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Price</label>
+              <input  [(ngModel)]="product.price" type="number" class="form-control" id="exampleInputPassword1" name="price">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Color</label>
+                <input  [(ngModel)]="product.color" type="text" class="form-control" id="exampleInputPassword1" name="color">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">is Out of Stock</label>
+              
+                <input  [(ngModel)]="product.isOutOfStock" type="checkbox" aria-label="Out Of Stock" class="form-control" id="exampleInputPassword1" name="price">
+              </div>
+            <button (click)="formSubmit()" type="submit" class="btn btn-primary">Submit</button>
+          </form>
+      </div>
+    </div>
+  </div>
+  

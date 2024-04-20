@@ -1,0 +1,65 @@
+<div class="header">
+  <div class="logo">
+    <a routerLink="/" class="logo-link">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYq-52nkkWI3GRfj3LWPNNut44b-ZndZMEdn-Brl8Lig&s" alt="Spa Ceylon Logo" />
+
+    </a>
+  </div>
+  </div>
+<div class="page-padding">
+  <div class="page-content">
+    <div class="content-body">
+      <div class="heading-4">
+        <i class="pi pi-video" style="font-size: 2rem"></i> Add Product
+      </div>
+      <div class="row">
+        <div class="col-sm-12" *ngFor="let responseError of errors" >
+          <small  id="passwordHelp" class="text-danger">
+            {{responseError}}
+          </small>      
+        </div>
+      </div>
+      <form>
+        <div class="form-group">
+          <label for="productName">Product Name</label>
+          <input  [(ngModel)]="form.name" type="text" class="form-control" id="productName" required name="productName">
+          <div class="col-sm-12" *ngIf="error.name.length>0">
+            <small id="passwordHelp" class="text-danger">
+              Name is required
+            </small>      
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="productDescription">Description</label>
+          <textarea [(ngModel)]="form.description" class="form-control" id="productDescription" required name="productDescription"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="productPrice">Price</label>
+          <input  [(ngModel)]="form.price" type="number" class="form-control" id="productPrice" required name="productPrice">
+          <div class="col-sm-12" *ngIf="error.price.length>0">
+            <small id="passwordHelp" class="text-danger">
+              Price is required
+            </small>      
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="productImage">Product Image</label>
+          <input type="file" class="form-control-file" id="productImage" name="image">
+        </div>
+        <div class="form-group">
+          <label for="productCategory">Category</label>
+          <select class="form-control" id="productCategory" [(ngModel)]="form.category" name="productCategory">
+            <option *ngFor="let c of categories" [ngValue]="c.id">{{c.name}}</option>
+          </select>
+          <div class="col-sm-12" *ngIf="error.category.length>0">
+            <small id="passwordHelp" class="text-danger">
+              Category is required
+            </small>      
+          </div>
+        </div>
+        
+        <button (click)="formSubmit()" type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

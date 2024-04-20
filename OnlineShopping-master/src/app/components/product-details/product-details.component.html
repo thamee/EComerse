@@ -1,0 +1,88 @@
+<div class="header">
+  <div class="logo">
+    <a routerLink="/" class="logo-link">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYq-52nkkWI3GRfj3LWPNNut44b-ZndZMEdn-Brl8Lig&s" alt="Spa Ceylon Logo" />
+
+    </a>
+  </div>
+  </div>
+
+<div class="page-padding">
+  <div class="page-content product-details">
+    <div class="content-body">
+      <div class="container" *ngIf="product">
+        <div class="row">
+          <div class="col-md-6">
+            <div
+              id="slideshow_product"
+              class="owl-carousel owl-theme"
+              style="opacity: 1; display: block"
+            >
+              <figure class="figure">
+                <img
+                  [src]="product.image"
+                  class="figure-img img-fluid rounded"
+                  alt="A generic square placeholder image with rounded corners in a figure."
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h1 class="text-left product-title">{{product.name}}</h1>
+            <ul class="list-unstyled">
+              <li>
+                <h2 class="text-left product-price" style="font-size: 24px">
+                  Rs LKR {{product.price}}.00
+                </h2>
+              </li>
+            </ul>
+           
+
+            <div id="product">
+              <div class="form-group">
+                <h3 class="control-label" for="input-quantity">Qty</h3>
+
+                <div class="qty">
+                  <span (click)="quantity=quantity-1" class="minus qty-span">-</span>
+                  <input
+                    type="number"
+                    [(ngModel)]="quantity"
+                    min="1"
+                    name="quantity"
+                    size="2"
+                    id="input-quantity"
+                    class="input-qnty count"
+                    disabled=""
+                  />
+                  <span (click)="quantity=quantity+1" class="plus qty-span">+</span>
+                </div>
+
+                <input type="hidden" name="product_id" value="5795" />
+                <br />
+                <button
+                  type="button"
+                  id="button-cart"
+                  data-loading-text="Loading..."
+                  (click)=addToCart();
+                  class="btn btn-lg btn-block btn-add-to-cart float-left"
+                >
+                  ADD TO CART
+                </button>
+               
+              </div>
+            </div>
+            <ul class="list-unstyled">
+              <li>
+                <h3>Availability: <span class="">{{product.isOutOfStock?"Out Of Stock":"In Stock"}}</span></h3>
+              </li>
+              <li>
+                <h3> <span class="">{{product.description}}</span></h3>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

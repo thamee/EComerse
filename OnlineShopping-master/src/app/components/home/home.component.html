@@ -1,0 +1,83 @@
+<style>
+  body, html {
+    height: 100%;
+    overflow: auto;
+  }
+  .container {
+    max-width: 100%;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+<div class="header">
+  <div class="logo">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYq-52nkkWI3GRfj3LWPNNut44b-ZndZMEdn-Brl8Lig&s" alt="Spa Ceylon Logo" />
+  </div>
+  
+<div class="app-menu">
+  <ul>
+    <ul>
+      
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li *ngFor="let category of categories; index as i">
+        <a (click)="navigateToCategory(category.id)"[class.selected]="selectedCategoryId === category.id">{{category.name}}</a>
+      </li>
+      <li>
+        <a href="/checkout">Check Out</a>
+      </li>
+      
+    </ul>
+    
+
+  </ul>
+</div>
+
+<div class="page-padding">
+  <div class="page-content login">
+    <div class="container">
+      <div class="row">
+        <div
+          *ngFor="let product of products; index as i"
+          class="product-layout product-grid col-lg-3 col-md-3 col-sm-6 col-xs-6"
+        >
+          <div class="product-thumb">
+            <div
+              id="product5795"
+              class="carousel slide"
+              data-ride="carousel"
+              data-interval="false"
+            >
+              <div class="carousel-inner">
+                <div class="item active">
+                  <figure class="figure">
+                    <img
+                      [src]="product.image"
+                      class="figure-img img-fluid rounded"
+                      alt="A generic square placeholder image with rounded corners in a figure."
+                    />
+                  </figure>
+                  <div class="button-group">
+                    <button type="button" onclick="cart.add('5795', '1');">
+                      <i class="fa fa-shopping-cart"></i>
+                      <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="caption">
+                <h5 id="product-caption">
+                  <a [href]="'/product-details/' + product.id">{{ product.name }}</a>
+                </h5>
+                <p class="price" style="margin-bottom: 0">Rs LKR {{ product.price }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

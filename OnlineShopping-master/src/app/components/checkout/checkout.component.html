@@ -1,0 +1,62 @@
+<div class="header">
+  <div class="logo">
+    <a routerLink="/" class="logo-link">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYq-52nkkWI3GRfj3LWPNNut44b-ZndZMEdn-Brl8Lig&s" alt="Spa Ceylon Logo" />
+
+    </a>
+  </div>
+  </div>
+  <div class="page-padding">
+    <div class="page-content">
+      <div class="content-body">
+        <div class="container">
+ <table class="table" *ngIf="orderedProducts.length>0">
+   
+    <tbody>
+      <tr mdbTableCol *ngFor="let sales of orderedProducts">
+        <td>
+          <img src="{{ sales.product.image }}" alt="{{ sales.product.name }}" class="product-image">
+        </td>
+        <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">{{ sales.product.name }}</td>
+        <td>{{sales.product.model}}</td>
+        <td>{{sales.product.color}}</td>
+        <td>LKR {{sales.product.price}}.00</td>
+        <td>{{sales.quantity}}</td>
+        <td><button type="button" class="btn btn-danger" (click)="removeProduct(sales)">Remove</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+  
+  <div *ngIf="orderedProducts.length > 0" class="text-right">
+   
+    <div class="row">
+      <div class="col">
+        <h3>Total:LKR  {{ calculateTotal() | number: '1.2-2' }}</h3>
+      </div>
+    </div>
+    </div>
+    <br/>
+    <div *ngIf="orderedProducts.length > 0" class="text-center">
+      <div class="row">
+        <div class="col">
+          <h4>Shipping</h4>
+          <textarea type="text" class="form-control" [(ngModel)]="shippingAddress" placeholder="Enter shipping address"></textarea>
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col">
+          <button *ngIf="orderedProducts.length>0" type="submit" (click)="addOrder()" class="btn btn-primary"><span class="bi-search"></span> Confirm Order</button>
+        </div>
+      </div>
+    </div>
+   
+  <p  *ngIf="orderedProducts.length==0">There is no items in the cart</p>
+  </div>
+  </div>
+  </div>
+  </div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-wm2l1LpI6veNz46EN9nGMekbIfl3d6FamVvCNRkN1+IeqgyaVLsbBVEpaFuCT1+L/Wt99PzIsreF5i7IGL7Ubw==" crossorigin="anonymous" />
+
+  

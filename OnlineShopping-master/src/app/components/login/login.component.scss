@@ -1,0 +1,29 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-form {
+    width: 62%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .heading-4 {
+    margin-bottom: 20px;
+  }
+  
+  .error-messages {
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary {
+    width: 100%;
+  }
+  .logo{
+    width: 10%;
+    margin-left: 45%;
+  }
